@@ -1,7 +1,7 @@
 import * as React from "react"
-import "./Product.css"
+import "./ProductCard.css"
 
-export default function Product(item){
+export default function ProductCard(item){
     return(
         <>
             <div className="product-image">
@@ -14,8 +14,8 @@ export default function Product(item){
                     <p className="product-price">{item.price}</p>
                 </div>
                 <div className="product-add">
-                    <p>✅</p>
-                    <p>❌</p>
+                    <button>✅</button>
+                    <button>❌</button>
                 </div>
             </div>
         </>

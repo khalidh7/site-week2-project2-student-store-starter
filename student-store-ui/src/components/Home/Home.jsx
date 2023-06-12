@@ -1,7 +1,7 @@
 import * as React from "react"
 import "./Home.css"
 import { useState, useEffect } from "react"
-import Product from "./Product"
+import ProductCard from "./ProductCard"
 
 
 export default function Home() {
@@ -17,7 +17,7 @@ export default function Home() {
       <div className="products">
         <h2>Best Selling Products</h2>
         {data?.map(element =>
-        <Product 
+        <ProductCard 
           image={element.image}
           name={element.name}
           price={element.price}
