@@ -1,27 +1,15 @@
 import * as React from "react"
 import "./Home.css"
 import { useState, useEffect } from "react"
-import ProductCard from "./ProductCard"
+import ProductGrid from "../ProductGrid/ProductGrid"
 
 
-export default function Home() {
-  const [data, setData] = useState();
-  useEffect(() => {
-    fetch('https://codepath-store-api.herokuapp.com/store')
-      .then(response => response.json())
-      .then(response => setData(response.products))
-  }, []);
-
+export default function Home({products}) {
   return (
     <div className="home">
       <div className="products">
         <h2>Best Selling Products</h2>
-        {data?.map(element =>
-        <ProductCard 
-          image={element.image}
-          name={element.name}
-          price={element.price}
-        />)}
+        <ProductGrid products={products}/>
       </div>
       <div className="about">
         <h2>About our Store</h2>
