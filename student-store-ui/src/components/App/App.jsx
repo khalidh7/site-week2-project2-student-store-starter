@@ -10,6 +10,10 @@ import { useEffect, useState } from "react"
 export default function App() {
   const [products, setProducts] = useState([]);
   const url = "https://codepath-store-api.herokuapp.com/store"
+  const [isFetching, setIsFetching] = useState(false)
+  const [error, setError] = useState(null)
+  const [isOpen, setIsOpen] = useState(false)
+  const [shoppingCart, setShoppingCart] = useState([])
   const [checkoutForm, setCheckoutForm] = useState()
 
   useEffect(() => {
