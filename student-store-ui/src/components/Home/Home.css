@@ -6,3 +6,147 @@
   display: flex;
   flex-direction: column;
 }
+
+.subnav {
+  width: 100%;
+  max-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  padding: 0
+}
+
+.subnav .content {
+  max-width: 75%;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px
+}
+
+.subnav .content .row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px 0
+}
+
+.subnav .content .search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 1;
+  margin-right: 40px
+}
+
+.subnav .content .search-bar input {
+  height: 40px;
+  padding: 0 15px;
+  border-radius: 8px 0 0 8px;
+  border: solid 1px #e4e4e4;
+  flex: 1;
+  font-size: 16px
+}
+
+.subnav .content .search-bar i {
+  height: 40px;
+  width: 40px;
+  background: #009EdB;
+  color: #fff;
+  fill: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.subnav .content .links {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 400px
+}
+
+.subnav .content .help,.sub-navbar .content .auth a,.sub-navbar .content .cart a {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-weight: 500
+}
+
+.subnav .content .help i {
+  color: #009EdB;
+  margin-right: 10px
+}
+
+.subnav .content .auth a {
+  color: #053143;
+  margin: 0 5px
+}
+
+.subnav .content .cart {
+  color: #fff;
+  background: #009EdB;
+  width: 170px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px
+}
+
+.subnav .content .cart i,.sub-navbar .content .cart a {
+  color: #fff;
+  margin: 0 5px
+}
+
+.subnav .hamburger-menu {
+  margin-right: 40px
+}
+
+.subnav .hamburger-menu i {
+  cursor: pointer;
+  color: #009EdB
+}
+
+.subnav .category-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex: 1;
+  list-style-type: none;
+  height: 40px;
+  font-weight: 500;
+  transition: all .2s ease
+}
+
+.subnav .category-menu.closed {
+  opacity: 0
+}
+
+.subnav .category-menu.closed li button {
+  transform: scale(.01)
+}
+
+.subnav .category-menu li.is-active button {
+  border-bottom: solid 2px var #009EdB
+}
+
+.subnav .category-menu li button {
+  cursor: pointer;
+  transition: all .1s ease;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-weight: 500;
+  font-size: 18px;
+  padding-bottom: 10px;
+  border-bottom: solid 2px transparent;
+  transition: all .2s ease
+}
+
+.subnav .category-menu li button:active {
+  transform: translateY(1px)
+}
