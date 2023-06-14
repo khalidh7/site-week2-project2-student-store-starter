@@ -14,6 +14,10 @@ export default function Home({products}) {
     setFiltered(products.filter(product => product.category.includes(cat)))
   }
 
+  function searchresults(input){
+    setFiltered(products.filter(product => product.name.toLowerCase().includes(input)))
+  }
+
   return (
     <>    
       <Navbar/>
@@ -22,7 +26,7 @@ export default function Home({products}) {
           <div className="content">
             <div className="row">
               <div className="search-bar">
-                <input type="text" name="search" placeholder="Search" value=""/>
+                <input type="text" name="search" placeholder="Search" onChange={(event) => searchresults(event.target.value.toLowerCase())}/>
               </div>
               <div className="links">
                 <span className="help">Help</span>
