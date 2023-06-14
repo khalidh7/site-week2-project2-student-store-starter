@@ -6,10 +6,12 @@ import Navbar from "../Navbar/Navbar"
 
 
 export default function Home({products}) {
+  const [filtered, setFiltered] = useState([]);
+
+  useEffect(() => {setFiltered(products)}, [products])
 
   function filterresults(cat){
-    products = products.filter(product => product.category.includes(cat))
-    console.log("it happened")
+    setFiltered(products.filter(product => product.category.includes(cat)))
   }
 
   return (
@@ -35,11 +37,10 @@ export default function Home({products}) {
               </div>
               <ul className="category-menu">
                 <li className="is-active">
-                  <button onClick={() => {}}>All Categories</button>
+                  <button onClick={() => {setFiltered(products)}}>All Categories</button>
                 </li>
                 <li className="">
-                  <button onClick={() =>
-                  {console.log('clothing');filterresults('clothing')}}>Clothing</button>
+                  <button onClick={() => filterresults('clothing')}>Clothing</button>
                 </li>
                 <li className="">
                   <button onClick={() => filterresults('food')}>Food</button>
@@ -56,7 +57,7 @@ export default function Home({products}) {
         </div>
         <div className="products">
           <h2>Best Selling Products</h2>
-          <ProductGrid products={products}/>
+          <ProductGrid products={filtered}/>
         </div>
         <div className="about">
           <h2>About our Store</h2>
