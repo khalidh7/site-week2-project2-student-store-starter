@@ -28,17 +28,11 @@ export default function Home({products}) {
               <div className="search-bar">
                 <input type="text" name="search" placeholder="Search" onChange={(event) => searchresults(event.target.value.toLowerCase())}/>
               </div>
-              <div className="links">
-                <span className="help">Help</span>
-                <div className="cart">
-                  <a href="/">My Cart</a>
-                </div>
+              <div className="cart">
+                <a href="/">My Cart</a>
               </div>
             </div>
             <div className="row">
-              <div className="hamburger-menu">
-                <i className="material-icons">menu</i>
-              </div>
               <ul className="category-menu">
                 <li className="is-active">
                   <button onClick={() => {setFiltered(products)}}>All Categories</button>
