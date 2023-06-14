@@ -53,24 +53,13 @@ export default function App() {
     }
   }
 
-  function handleRemoveItemFromCart(productId){
-
-  }
-
-  function handleOnCheckoutFormChange(name, value){
-
-  }
-
-  function handleOnSubmitCheckoutForm(user, shoppingCart){
-
-  }
 
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home products={products}/>}/>
-          <Route path="/products/:productId" element={<ProductDetail />} />
+          <Route path="/products/:productId" element={<ProductDetail products={products}/>} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

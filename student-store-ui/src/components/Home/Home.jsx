@@ -3,6 +3,7 @@ import "./Home.css"
 import { useState, useEffect } from "react"
 import ProductGrid from "../ProductGrid/ProductGrid"
 import Navbar from "../Navbar/Navbar"
+import Hero from "../Hero/Hero"
 
 
 export default function Home({products}) {
@@ -21,6 +22,7 @@ export default function Home({products}) {
   return (
     <>    
       <Navbar/>
+      <Hero/>
       <div className="home">
         <div className="subnav">
           <div className="content">

@@ -1,19 +1,18 @@
 import * as React from "react"
-import "./ProductCard.css"
+import "./ProductView.css"
 import Navbar from "../Navbar/Navbar"
-export default function ProductCard({product}){
+export default function ProductView({product}){
     return(
-        <div className="product-card">
+        <div className="product-view">
             <div className="product-image">
-                <a  href={`/products/${product.id}`}>
-                    <img src={product.image} alt={`Picture of ` + product.name}/>
-                </a>
+                <img src={product.image} alt={`Picture of ` + product.name}/>
             </div>
             <div className="product-bottom">
                 <div className="product-text">
                     <p className="product-name">{product.name}</p>
                     <p className="product-rating">⭐⭐⭐⭐⭐</p>
                     <p className="product-price">${product.price}</p>
+                    <p className="product-description">{product.description}</p>
                 </div>
                 <div className="product-add">
                     <button>❌</button>
