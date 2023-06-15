@@ -5,12 +5,17 @@ import ProductCard from "../ProductCard/ProductCard";
 
 export default function ProductGrid({products}){
     return(
-        <div className="product-grid">
-            {products?.map(element =>
-                <ProductCard 
-                product={element}
-                />)
-            }
+        <div id="products" className="product-grid">
+            <div className="content">
+                <h2>Best Selling Products</h2>
+                <div className="grid">
+                    {products?.map(element =>
+                        <ProductCard 
+                        product={element}
+                        />)
+                    }
+                </div>
+            </div>
         </div>
     )
 }

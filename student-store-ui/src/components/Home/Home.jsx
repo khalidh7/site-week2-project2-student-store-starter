@@ -58,10 +58,7 @@ export default function Home({products}) {
             </div>
           </div>
         </div>
-        <div className="products" id="products">
-          <h2>Best Selling Products</h2>
-          <ProductGrid products={filtered}/>
-        </div>
+        <ProductGrid products={filtered}/>
         <About/>
         <Contact/>
         <Footer/>
