@@ -31,7 +31,9 @@
   .hero .content .intro h1 {
     color: var(--pure-white);
     font-size: 60px;
-    font-weight: 600
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
   
   .hero .content .intro p {

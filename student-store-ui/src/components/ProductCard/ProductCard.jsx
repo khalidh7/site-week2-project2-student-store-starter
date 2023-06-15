@@ -16,8 +16,13 @@ export default function ProductCard({product}){
                     <p className="product-price">${product.price}</p>
                 </div>
                 <div className="product-add">
-                    <button>❌</button>
-                    <button>✅</button>
+                    <div className="buttons">
+                        <button>✅</button>
+                        <button>❌</button>
+                    </div>
+                    <div className="quantity">
+                        <p></p>
+                    </div>
                 </div>
             </div>
         </div>
