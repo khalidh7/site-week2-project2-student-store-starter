@@ -8,16 +8,17 @@
     margin-top: 25px;
 }
 
-img{
+.product-view .product-image img{
     width: 100%;
     height: auto;
     border-radius: 15px;
 }
-.product-bottom{
+
+.product-view .product-bottom{
     display: flex;
     justify-content: space-between;
 }
-.product-add{
+.product-view .product-add{
     display: flex;
     flex-direction: column-reverse;
 }

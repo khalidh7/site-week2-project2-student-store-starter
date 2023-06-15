@@ -1,5 +1,5 @@
 import * as React from "react"
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "../Home/Home"
 import ProductDetail from "../ProductDetail/ProductDetail";
 import NotFound from "../NotFound/NotFound";
@@ -60,7 +60,8 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home products={products}/>}/>
           <Route path="/products/:productId" element={<ProductDetail products={products}/>} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="/404" element={<NotFound />} />
+          <Route path="*" element={<Navigate to="/404" />} />
         </Routes>
       </BrowserRouter>
     </>
