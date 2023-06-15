@@ -12,9 +12,7 @@ export default function App() {
   const url = "https://codepath-store-api.herokuapp.com/store"
   const [isFetching, setIsFetching] = useState(false)
   const [error, setError] = useState(null)
-  const [isOpen, setIsOpen] = useState(false)
-  const [shoppingCart, setShoppingCart] = useState([])
-  const [checkoutForm, setCheckoutForm] = useState()
+  const [isOpen, setIsOpen] = useState("closed")
 
   useEffect(() => {
     axios.get(url)
@@ -31,25 +29,12 @@ export default function App() {
       })
   }, []);
 
-  function handleOnToggle(){
-    if(isOpen == false){
-      setIsOpen(true)
+  function handleOnToggle(isOpen){
+    if(isOpen == "closed"){
+      setIsOpen("open")
     }
-    else{
-      setIsOpen(false)
-    }
-  }
-
-  function handleAddItemToCart(productId){
-    let item = products.filter(item => item.id == productId)
-    if(item in shoppingCart){
-      shoppingCart.item.quantity +=1
-    }
-    else{
-      setShoppingCart({
-        itemId: productId,
-        quantity: 1
-      })
+    else if(isOpen =="open"){
+      setIsOpen("closed")
     }
   }
 
@@ -58,7 +43,7 @@ export default function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home products={products}/>}/>
+          <Route path="/" element={<Home products={products} isOpen={isOpen} handleOnToggle={handleOnToggle}/>}/>
           <Route path="/products/:productId" element={<ProductDetail products={products}/>} />
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" />} />

@@ -7,9 +7,10 @@ import Hero from "../Hero/Hero"
 import About from "../About/About"
 import Contact from "../Contact/Contact"
 import Footer from "../Footer/Footer"
+import Sidebar from "../Sidebar/Sidebar"
 
 
-export default function Home({products}) {
+export default function Home({products, isOpen, handleOnToggle}) {
   const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {setFiltered(products)}, [products])
@@ -23,7 +24,8 @@ export default function Home({products}) {
   }
 
   return (
-    <>    
+    <>
+      <Sidebar isOpen={isOpen} handleOnToggle={handleOnToggle}/>    
       <Navbar/>
       <Hero/>
       <div className="home">
