@@ -15,8 +15,13 @@ export default function ProductView({product}){
                     <p className="product-description">{product.description}</p>
                 </div>
                 <div className="product-add">
-                    <button>❌</button>
-                    <button>✅</button>
+                    <div className="buttons">
+                        <button>✅</button>
+                        <button>❌</button>
+                    </div>
+                    <div className="quantity">
+                        <p></p>
+                    </div>
                 </div>
             </div>
         </div>
