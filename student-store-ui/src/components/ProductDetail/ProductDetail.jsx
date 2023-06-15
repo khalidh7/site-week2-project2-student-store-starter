@@ -16,6 +16,7 @@ export default function ProductDetail({products}){
     }, [filtered])
     
     
+    
     return(
         <>
             <Navbar/>

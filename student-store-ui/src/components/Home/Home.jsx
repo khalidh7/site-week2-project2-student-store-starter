@@ -4,8 +4,9 @@ import { useState, useEffect } from "react"
 import ProductGrid from "../ProductGrid/ProductGrid"
 import Navbar from "../Navbar/Navbar"
 import Hero from "../Hero/Hero"
-import logo from "./logo.jpeg"
-import happy from "./happy_person.svg"
+import About from "../About/About"
+import Contact from "../Contact/Contact"
+import Footer from "../Footer/Footer"
 
 
 export default function Home({products}) {
@@ -61,45 +62,9 @@ export default function Home({products}) {
           <h2>Best Selling Products</h2>
           <ProductGrid products={filtered}/>
         </div>
-        <div className="about" id="about">
-          <div className="content">
-            <h3>About</h3>
-            <div className="summary">
-              <div className="text">
-                <p>The codepath student store offers great products at great prices from a great team and for a great cause.</p>
-                <p>We've searched far and wide for items that perk the interests of even the most eccentric students and decided to offer them all here in one place.</p>
-                <p>All proceeds go towards bringing high quality CS education to college students around the country.</p>
-              </div>
-              <div className="media">
-                <img src={logo} alt="Salesforce logo"/>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="contact" className="contact">
-          <div className="content">
-            <h3>Contact Us</h3>
-            <div className="summary">
-              <ul className="info">
-                <li>
-                  <span className="label">Email:</span>
-                  <span>code@path.org</span>
-                </li>
-                <li>
-                  <span className="label">Phone:</span>
-                  <span>1-800-CODEPATH</span>
-                </li>
-                <li>
-                  <span className="label">Address:</span>
-                  <span>123 Fake Street, San Francisco, CA</span>
-                </li>
-              </ul>
-              <div className="media">
-                <img src={happy} alt="Person Happy"/>
-              </div>
-            </div>  
-          </div>
-        </div>
+        <About/>
+        <Contact/>
+        <Footer/>
       </div>
     </>  
   )
