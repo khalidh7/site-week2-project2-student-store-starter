@@ -1,5 +1,6 @@
 import * as React from "react"
 import "./Sidebar.css"
+import ShoppingCart from "../ShoppingCart/ShoppingCart"
 
 export default function Sidebar({isOpen, handleOnToggle}) {
 
@@ -26,6 +27,7 @@ export default function Sidebar({isOpen, handleOnToggle}) {
             </span>
           </div>
         </div>
+        <ShoppingCart isOpen={isOpen}/>
       </div>
     </section>
   )
