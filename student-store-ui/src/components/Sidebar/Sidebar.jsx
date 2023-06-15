@@ -2,7 +2,7 @@ import * as React from "react"
 import "./Sidebar.css"
 import ShoppingCart from "../ShoppingCart/ShoppingCart"
 
-export default function Sidebar({isOpen, handleOnToggle}) {
+export default function Sidebar({isOpen, handleOnToggle, arrow}) {
 
   function changeSidebar(isOpen){
     handleOnToggle(isOpen)
@@ -12,7 +12,7 @@ export default function Sidebar({isOpen, handleOnToggle}) {
     <section className={`sidebar ${isOpen}`}>
       <div className="wrapper">
         <button className="toggle-button button closed">
-          <i className="material-icons md-48" onClick={() => changeSidebar(isOpen)}>arrow_forward</i>
+          <i className="material-icons md-48" onClick={() => changeSidebar(isOpen)}>{arrow}</i>
         </button>
         <div className="shopping-cart">
           <div className="cart-icons">

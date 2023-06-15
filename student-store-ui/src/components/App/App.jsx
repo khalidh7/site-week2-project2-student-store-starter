@@ -13,6 +13,7 @@ export default function App() {
   const [isFetching, setIsFetching] = useState(false)
   const [error, setError] = useState(null)
   const [isOpen, setIsOpen] = useState("closed")
+  const [arrow, setArrow] = useState("arrow_forward")
 
   useEffect(() => {
     axios.get(url)
@@ -31,9 +32,11 @@ export default function App() {
 
   function handleOnToggle(isOpen){
     if(isOpen == "closed"){
+      setArrow("arrow_backward")
       setIsOpen("open")
     }
     else if(isOpen =="open"){
+      setArrow("arrow_forward")
       setIsOpen("closed")
     }
   }
@@ -43,7 +46,7 @@ export default function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home products={products} isOpen={isOpen} handleOnToggle={handleOnToggle}/>}/>
+          <Route path="/" element={<Home products={products} isOpen={isOpen} handleOnToggle={handleOnToggle} arrow={arrow}/>}/>
           <Route path="/products/:productId" element={<ProductDetail products={products}/>} />
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" />} />

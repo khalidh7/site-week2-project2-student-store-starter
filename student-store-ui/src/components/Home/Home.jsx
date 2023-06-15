@@ -10,7 +10,7 @@ import Footer from "../Footer/Footer"
 import Sidebar from "../Sidebar/Sidebar"
 
 
-export default function Home({products, isOpen, handleOnToggle}) {
+export default function Home({products, isOpen, handleOnToggle, arrow}) {
   const [filtered, setFiltered] = useState([]);
 
   useEffect(() => {setFiltered(products)}, [products])
@@ -25,7 +25,7 @@ export default function Home({products, isOpen, handleOnToggle}) {
 
   return (
     <>
-      <Sidebar isOpen={isOpen} handleOnToggle={handleOnToggle}/>    
+      <Sidebar isOpen={isOpen} handleOnToggle={handleOnToggle} arrow={arrow}/>    
       <Navbar/>
       <Hero/>
       <div className="home">
