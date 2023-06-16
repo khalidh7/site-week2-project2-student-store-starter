@@ -3,7 +3,7 @@ import "./ProductGrid.css"
 import ProductCard from "../ProductCard/ProductCard";
 
 
-export default function ProductGrid({products}){
+export default function ProductGrid({products, remove, add, cart}){
     return(
         <div id="products" className="product-grid">
             <div className="content">
@@ -11,7 +11,7 @@ export default function ProductGrid({products}){
                 <div className="grid">
                     {products?.map(element =>
                         <ProductCard 
-                        product={element}
+                        product={element} remove={remove} add={add} cart={cart}
                         />)
                     }
                 </div>

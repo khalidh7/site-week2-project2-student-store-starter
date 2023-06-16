@@ -1,7 +1,8 @@
 import * as React from "react"
 import "./ProductCard.css"
-import Navbar from "../Navbar/Navbar"
-export default function ProductCard({product}){
+
+export default function ProductCard({product, remove, add, cart}){
+    let temp = cart.find(item => {item.id == product.id})
     return(
         <div className="product-card">
             <div className="product-image">
@@ -17,11 +18,14 @@ export default function ProductCard({product}){
                 </div>
                 <div className="product-add">
                     <div className="buttons">
-                        <button>✅</button>
-                        <button>❌</button>
+                        <button onClick={()=>{add(product.id)}}>✅</button>
+                        <button onClick={()=>remove(product.id)}>❌</button>
                     </div>
                     <div className="quantity">
-                        <p></p>
+                        <div className="content">
+                            {console.log(temp)}
+                            {temp? temp.quantity : 0}
+                        </div>
                     </div>
                 </div>
             </div>

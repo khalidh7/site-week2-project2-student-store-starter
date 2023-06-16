@@ -25,7 +25,12 @@
     display: flex;
     justify-content: space-between;
 }
-.product-card .product-add{
+.product-card .product-bottom .product-add{
     display: flex;
     flex-direction: column-reverse;
+}
+
+.product-cart .product-bottom .product-add .quantity{
+    display: flex;
+    flex-direction: row-reverse;
 }
