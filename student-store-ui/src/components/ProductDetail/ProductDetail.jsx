@@ -7,13 +7,12 @@ import { useParams } from 'react-router-dom'
 
 
 export default function ProductDetail({products}){
-    console.log()
     const {productId} = useParams()
-    const [filtered, setFiltered] = useState([])
+    const [filteredList, setFilteredList] = useState([])
     
     useEffect(() => {
-        setFiltered(products.filter(product => product.id == productId))
-    }, [filtered])
+        setFilteredList(products.filter(product => product.id == productId))
+    }, [filteredList])
     
     
     
@@ -21,9 +20,9 @@ export default function ProductDetail({products}){
         <>
             <Navbar/>
             <div className="product-detail">
-            {filtered?.map(element =>
+            {filteredList?.map(element => 
                 <ProductView 
-                product={filtered[0]}
+                product={filteredList[0]}
                 />)
             }
             </div>

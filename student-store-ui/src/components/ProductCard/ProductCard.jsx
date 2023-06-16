@@ -2,7 +2,7 @@ import * as React from "react"
 import "./ProductCard.css"
 
 export default function ProductCard({product, remove, add, cart}){
-    let temp = cart.find(item => {item.id == product.id})
+    let temp =cart.find(item => item.id == product.id)
     return(
         <div className="product-card">
             <div className="product-image">
@@ -23,7 +23,6 @@ export default function ProductCard({product, remove, add, cart}){
                     </div>
                     <div className="quantity">
                         <div className="content">
-                            {console.log(temp)}
                             {temp? temp.quantity : 0}
                         </div>
                     </div>
