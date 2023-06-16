@@ -17,13 +17,22 @@ export default function Home({products, isOpen, handleOnToggle, arrow, remove, a
 
   useEffect(() => {setFiltered(products)}, [products])
 
-  function filterresults(){
+  function filterresults(cat){
+    setCat(cat);
     setFiltered(products.filter(product => product.category.includes(cat)))
-    console.log(products);
   }
 
   function searchresults(input){
-    setFiltered(filtered.filter(product => product.name.toLowerCase().includes(input)))
+    if (cat.length > 0) {
+      setFiltered(
+        products
+        .filter(product => product.category.includes(cat))
+        .filter(product => product.name.toLowerCase().includes(input))
+      )
+    }
+    else {
+      setFiltered(products.filter(product => product.name.toLowerCase().includes(input)))
+    }
   }
 
   return (
@@ -36,7 +45,7 @@ export default function Home({products, isOpen, handleOnToggle, arrow, remove, a
           <div className="content">
             <div className="row">
               <div className="search-bar">
-                <input type="text" name="search" placeholder="Search" onChange={(event) => {filterresults(cat); console.log(filtered); searchresults(event.target.value.toLowerCase())}}/>
+                <input type="text" name="search" placeholder="Search" onChange={(event) => {searchresults(event.target.value.toLowerCase())}}/>
               </div>
               <div className="cart">
                 <a href="/">My Cart</a>
@@ -45,19 +54,19 @@ export default function Home({products, isOpen, handleOnToggle, arrow, remove, a
             <div className="row">
               <ul className="category-menu">
                 <li className="is-active">
-                  <button onClick={() => {setFiltered(products)}}>All Categories</button>
+                  <button onClick={() => {setFiltered(products); setCat('')}}>All Categories</button>
                 </li>
                 <li className="">
-                  <button onClick={() => {setCat('clothing'); filterresults()}}>Clothing</button>
+                  <button onClick={() => {filterresults('clothing')}}>Clothing</button>
                 </li>
                 <li className="">
-                  <button onClick={() => {setCat('food'); filterresults()}}>Food</button>
+                  <button onClick={() => {filterresults('food')}}>Food</button>
                 </li>
                 <li className="">
-                  <button onClick={() => {setCat('accessories'); filterresults()}}>Accessories</button>
+                  <button onClick={() => {filterresults('accessories')}}>Accessories</button>
                 </li>
                 <li className="">
-                  <button onClick={() => {setCat('tech'); filterresults()}}>Tech</button>
+                  <button onClick={() => {filterresults('tech');}}>Tech</button>
                 </li>
               </ul>
             </div>
