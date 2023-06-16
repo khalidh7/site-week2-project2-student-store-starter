@@ -14,9 +14,12 @@ Check out our [deployed Student Store](https://codepath-student-store-demo.surge
 
 My Video :
 <a href="https://www.loom.com/share/a23f323424f24c7bad089207d356b6f5">
+
 <p>Student Store Part 1 - Watch Video</p>
 <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/a23f323424f24c7bad089207d356b6f5-with-play.gif">
 </a>
+
+https://www.loom.com/share/a23f323424f24c7bad089207d356b6f5?sid=a3a8acdb-9461-4ea7-933f-0eafbf9fdf88
 
 ### Core Features
 
