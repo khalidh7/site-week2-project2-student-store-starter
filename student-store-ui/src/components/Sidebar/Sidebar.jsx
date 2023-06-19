@@ -2,7 +2,7 @@ import * as React from "react"
 import "./Sidebar.css"
 import ShoppingCart from "../ShoppingCart/ShoppingCart"
 
-export default function Sidebar({isOpen, handleOnToggle, arrow}) {
+export default function Sidebar({isOpen, handleOnToggle, arrow, cart, products}) {
 
   function changeSidebar(isOpen){
     handleOnToggle(isOpen)
@@ -27,7 +27,7 @@ export default function Sidebar({isOpen, handleOnToggle, arrow}) {
             </span>
           </div>
         </div>
-        <ShoppingCart isOpen={isOpen}/>
+        <ShoppingCart isOpen={isOpen} cart={cart} products={products}/>
       </div>
     </section>
   )

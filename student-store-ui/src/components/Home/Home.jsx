@@ -37,7 +37,7 @@ export default function Home({products, isOpen, handleOnToggle, arrow, remove, a
 
   return (
     <>
-      <Sidebar isOpen={isOpen} handleOnToggle={handleOnToggle} arrow={arrow}/>    
+      <Sidebar isOpen={isOpen} handleOnToggle={handleOnToggle} arrow={arrow} cart={cart} products={products}/>    
       <Navbar/>
       <Hero/>
       <div className="home">

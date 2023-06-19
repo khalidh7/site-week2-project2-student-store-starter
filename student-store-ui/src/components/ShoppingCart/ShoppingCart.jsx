@@ -1,8 +1,7 @@
 import React from "react";
 import "./ShoppingCart.css"
 
-export default function ShoppingCart({isOpen}){
-    
+export default function ShoppingCart({isOpen, cart, products}){
     return(
         <div className="shopping-cart">
             <div className={`${isOpen}`}>
@@ -12,7 +11,28 @@ export default function ShoppingCart({isOpen}){
                         <i className="material-icons md-48">add_shopping_cart</i>
                     </span>
                 </h3>
-                <div className="notification">No items added to cart yet. Start shopping now!</div>
+                {cart?
+                    <table className="table">
+                        <tr className="cart-header">
+                            <th className="name">Name</th>
+                            <th className="quantity">Quantity</th>
+                            <th className="unit-price">Unit Price</th>
+                            <th className="price">Price</th>
+                        </tr>
+                        {cart.map(item => {
+                            const unitprice = products[item.id - 1].price
+                            const price = unitprice * item.quantity
+                            return(
+                                <tr className="cart-body">
+                                    <td>{products[item.id - 1].name}</td>
+                                    <td>{item.quantity}</td>
+                                    <td>{unitprice}</td>
+                                    <td>{price}</td>
+                                </tr>
+                            )
+                        })}
+                    </table>
+                    : <div className="notification">No items added to cart yet. Start shopping now!</div>}
                 <div className="checkout-form">
                     <h3 className="">
                         Payment Info 
