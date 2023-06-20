@@ -9,7 +9,7 @@ import { useEffect, useState } from "react"
 
 export default function App() {
   const [products, setProducts] = useState([]);
-  const url = "https://codepath-store-api.herokuapp.com/store"
+  const url = "http://localhost:3001/store"
   const [isFetching, setIsFetching] = useState(false)
   const [error, setError] = useState(null)
   const [isOpen, setIsOpen] = useState("closed")
@@ -20,7 +20,7 @@ export default function App() {
     axios.get(url)
       .then(response => {
         setIsFetching(true);
-        setProducts(response.data.products);
+        setProducts(response.data);
 
         if(!products){
           setError("No products fetched");

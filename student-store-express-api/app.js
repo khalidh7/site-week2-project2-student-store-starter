@@ -1,8 +1,10 @@
 // YOUR CODE HERE
 const express = require("express");
+const cors = require("cors");
 const router = express();
 const dataModel = require("./data/products.js");
-const port = process.env.PORT || 3005;
+
+router.use(cors());
 
 router.get("/store", (req, res) => {
   const products = dataModel.getAll();

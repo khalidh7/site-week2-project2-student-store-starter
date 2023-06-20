@@ -1,4 +1,6 @@
-const data = require("./db.json");
+const fs = require("fs");
+let myObject = fs.readFileSync("./data/db.json", "utf8");
+let data = JSON.parse(myObject);
 
 const productSchema = {
   id: Number,
@@ -10,8 +12,8 @@ const productSchema = {
 };
 
 const purchaseSchema = {
-  id: Number,
   name: String,
+  id: Number,
 };
 
 const dataModel = {
