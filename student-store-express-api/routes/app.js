@@ -3,6 +3,11 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 const dataModel = require("../models/products.js");
+// const bodyParser = require("body-parser");
+
+app.use(express.json());
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(cors());
 
@@ -23,9 +28,7 @@ app.get("/store/:id", (req, res) => {
 
 app.post("/purchase", (req, res) => {
   const order = req.body;
-  console.log(order);
   const newOrder = dataModel.create(order);
-  console.log(newOrder);
   res.status(201).json(newOrder);
 });
 
