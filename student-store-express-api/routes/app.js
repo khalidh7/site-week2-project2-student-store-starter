@@ -1,17 +1,17 @@
 // YOUR CODE HERE
 const express = require("express");
 const cors = require("cors");
-const router = express();
-const dataModel = require("./data/products.js");
+const app = express();
+const dataModel = require("../models/products.js");
 
-router.use(cors());
+app.use(cors());
 
-router.get("/store", (req, res) => {
+app.get("/store", (req, res) => {
   const products = dataModel.getAll();
   res.json(products);
 });
 
-router.get("/store/:id", (req, res) => {
+app.get("/store/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const product = dataModel.getById(id);
   if (product) {
@@ -21,7 +21,7 @@ router.get("/store/:id", (req, res) => {
   }
 });
 
-router.post("/purchase", (req, res) => {
+app.post("/purchase", (req, res) => {
   const order = req.body;
   console.log(order);
   const newOrder = dataModel.create(order);
@@ -29,4 +29,4 @@ router.post("/purchase", (req, res) => {
   res.status(201).json(newOrder);
 });
 
-module.exports = router;
+module.exports = app;
