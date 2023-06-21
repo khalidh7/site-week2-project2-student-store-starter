@@ -2,7 +2,6 @@ const fs = require("fs");
 let myObject = fs.readFileSync("./data/db.json", "utf8");
 let data = JSON.parse(myObject);
 let products = data.products;
-let purchases = data.purchases;
 
 const productSchema = {
   id: Number,
@@ -26,9 +25,20 @@ const dataModel = {
     return products.find((user) => user.id === id);
   },
   create: (order) => {
-    const orderId = purchases.length + 1;
-    const newOrder = { ...order, id: orderId };
-    purchases.push(newOrder);
+    const orderId = data.purchases.length + 1;
+    const newOrder = { id: orderId, ...order };
+    data.purchases.push(newOrder);
+    const updatedData = JSON.stringify(data);
+
+    fs.writeFile("./data/db.json", updatedData, (err) => {
+      if (err) {
+        console.error("Error writing to JSON file:", err);
+        return;
+      }
+
+      console.log("Data written to JSON file successfully.");
+    });
+
     return newOrder;
   },
 };
