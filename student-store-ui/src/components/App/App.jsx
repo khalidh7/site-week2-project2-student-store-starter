@@ -85,7 +85,7 @@ export default function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home products={products} isOpen={isOpen} handleOnToggle={handleOnToggle} arrow={arrow} remove={removeFromCart} add={addToCart} cart={shoppingCart}/>}/>
-          <Route path="/products/:productId" element={<ProductDetail products={products}/>} />
+          <Route path="/products/:productId" element={<ProductDetail products={products} cart={shoppingCart} remove={removeFromCart} add={addToCart}/>} />
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" />} />
         </Routes>

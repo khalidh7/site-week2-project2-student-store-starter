@@ -1,7 +1,9 @@
 import * as React from "react"
 import "./ProductView.css"
 import Navbar from "../Navbar/Navbar"
-export default function ProductView({product}){
+export default function ProductView({product, cart, remove, add}){
+    let temp =cart.find(item => item.id == product.id)
+
     return(
         <div className="product-view">
             <div className="product-image">
@@ -16,11 +18,13 @@ export default function ProductView({product}){
                 </div>
                 <div className="product-add">
                     <div className="buttons">
-                        <button>✅</button>
-                        <button>❌</button>
+                        <button onClick={()=>{add(product.id)}}>✅</button>
+                        <button onClick={()=>remove(product.id)}>❌</button>
                     </div>
                     <div className="quantity">
-                        <p></p>
+                        <div className="content">
+                            {temp? temp.quantity : 0}
+                        </div>
                     </div>
                 </div>
             </div>

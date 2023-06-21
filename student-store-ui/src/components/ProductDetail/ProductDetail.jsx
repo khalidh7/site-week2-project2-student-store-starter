@@ -6,7 +6,7 @@ import "./ProductDetail.css"
 import { useParams } from 'react-router-dom'
 
 
-export default function ProductDetail({products}){
+export default function ProductDetail({products, cart, remove, add}){
     const {productId} = useParams()
     const [filteredList, setFilteredList] = useState([])
     
@@ -22,7 +22,7 @@ export default function ProductDetail({products}){
             <div className="product-detail">
             {filteredList?.map(element => 
                 <ProductView 
-                product={filteredList[0]}
+                product={filteredList[0]} cart={cart} remove={remove} add={add}
                 />)
             }
             </div>
