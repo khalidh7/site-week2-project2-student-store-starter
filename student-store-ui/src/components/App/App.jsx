@@ -15,6 +15,12 @@ export default function App() {
   const [isOpen, setIsOpen] = useState("closed")
   const [arrow, setArrow] = useState("arrow_forward")
   const [shoppingCart, setShoppingCart] = useState([])
+  const [checkoutForm, setCheckoutForm] = useState({
+    name: "",
+    email: "",
+    total: 0,
+    shoppingCart: []
+  })
 
   useEffect(() => {
     axios.get(url)
@@ -77,6 +83,30 @@ export default function App() {
       let newlist = shoppingCart.filter(item => item.quantity > 0)
       setShoppingCart(newlist)
     }
+  }
+  
+  function handleOnCheckoutFormChange(name, value){
+    switch(name){
+      case "name":
+        setCheckoutForm({...checkoutForm, name: value})
+      case "email":
+        setCheckoutForm({...checkoutForm, email: value})
+      case "total": 
+        setCheckoutForm({...checkoutForm, total: value})
+      case "shoppingCart":
+        setCheckoutForm({...checkoutForm, shoppingCart: value})
+    }
+  }
+
+  function handleOnCheckoutFormSubmit(){
+    axios.post("http://localhost:3001/purchase", checkoutForm)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+    setCheckoutForm({})
   }
 
 
