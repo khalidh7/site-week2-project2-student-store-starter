@@ -1,6 +1,7 @@
 import React from "react";
 
-export default function CheckoutForm(){
+export default function CheckoutForm({change, submit, checkout}){
+
     return(
         <div className="checkout-form">
                     <h3 className="">
@@ -12,13 +13,13 @@ export default function CheckoutForm(){
                     <div className="input-field">
                         <label className="label">Name</label>
                         <div className="control ">
-                            <input name="name" className="checkout-form-input" type="text" placeholder="Student Name" value=""/>
+                            <input name="name" className="checkout-form-input" type="text" placeholder="Student Name" onChange={(event) => {change("name", event.target.value)}}/>
                         </div>
                     </div>
                     <div className="input-field">
                         <label className="label">Email</label>
                         <div className="control">
-                            <input name="email" className="checkout-form-input" type="email" placeholder="student@codepath.org" value=""/>
+                            <input name="email" className="checkout-form-input" type="email" placeholder="student@codepath.org" onChange={(event) => {change("email", event.target.value)}}/>
                         </div>
                     </div>
                     <div className="field">
@@ -32,7 +33,7 @@ export default function CheckoutForm(){
                     <p className="is-danger"></p>
                     <div className="field">
                         <div className="control">
-                            <button className="button checkout-button">Checkout</button>
+                            <button className="button checkout-button" onClick={submit}>Checkout</button>
                         </div>
                     </div>
                 </div>

@@ -10,7 +10,7 @@ import Footer from "../Footer/Footer"
 import Sidebar from "../Sidebar/Sidebar"
 
 
-export default function Home({products, isOpen, handleOnToggle, arrow, remove, add, cart}) {
+export default function Home({products, isOpen, handleOnToggle, arrow, remove, add, cart, change, submit, checkout}) {
   const [filtered, setFiltered] = useState(products);
   const [cat, setCat] = useState('')
 
@@ -37,7 +37,7 @@ export default function Home({products, isOpen, handleOnToggle, arrow, remove, a
 
   return (
     <>
-      <Sidebar isOpen={isOpen} handleOnToggle={handleOnToggle} arrow={arrow} cart={cart} products={products}/>    
+      <Sidebar isOpen={isOpen} handleOnToggle={handleOnToggle} arrow={arrow} cart={cart} products={products} change={change} submit={submit} checkout={checkout}/>    
       <Navbar/>
       <Hero/>
       <div className="home">

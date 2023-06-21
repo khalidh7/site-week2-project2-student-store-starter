@@ -2,7 +2,7 @@ import React from "react";
 import "./ShoppingCart.css"
 import CheckoutForm from "../CheckoutForm/CheckoutForm";
 
-export default function ShoppingCart({isOpen, cart, products}){
+export default function ShoppingCart({isOpen, cart, products, change, submit, checkout}){
     return(
         <div className="shopping-cart">
             <div className={`${isOpen}`}>
@@ -34,7 +34,7 @@ export default function ShoppingCart({isOpen, cart, products}){
                         })}
                     </table>
                     : <div className="notification">No items added to cart yet. Start shopping now!</div>}
-                <CheckoutForm/>
+                <CheckoutForm change={change} submit={submit} checkout={checkout}/>
                 <div className="checkout-success">
                     <h3>Checkout Info <span className="icon button"><i className="material-icons md-48">fact_check</i></span></h3>
                     <div className="content">

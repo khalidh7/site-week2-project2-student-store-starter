@@ -18,7 +18,6 @@ export default function App() {
   const [checkoutForm, setCheckoutForm] = useState({
     name: "",
     email: "",
-    total: 0,
     shoppingCart: []
   })
 
@@ -65,6 +64,7 @@ export default function App() {
       })
       setShoppingCart(newItem)
     }
+    handleOnCheckoutFormChange("shoppingCart", shoppingCart)
   }
 
   function removeFromCart(productId){
@@ -83,30 +83,47 @@ export default function App() {
       let newlist = shoppingCart.filter(item => item.quantity > 0)
       setShoppingCart(newlist)
     }
+    handleOnCheckoutFormChange("shoppingCart", shoppingCart)
   }
   
   function handleOnCheckoutFormChange(name, value){
-    switch(name){
-      case "name":
-        setCheckoutForm({...checkoutForm, name: value})
-      case "email":
-        setCheckoutForm({...checkoutForm, email: value})
-      case "total": 
-        setCheckoutForm({...checkoutForm, total: value})
-      case "shoppingCart":
-        setCheckoutForm({...checkoutForm, shoppingCart: value})
+    // switch(name){
+    //   case "name":
+    //     console.log("name")
+    //     setCheckoutForm({...checkoutForm, name: value});
+    //   case "email":
+    //     console.log('email')
+    //     setCheckoutForm({...checkoutForm, email: value});
+    //   case "shoppingCart":
+    //     console.log("form")
+    //     setCheckoutForm({...checkoutForm, shoppingCart: value});
+    // }
+    if (name == "name"){
+      setCheckoutForm({...checkoutForm, name: value})
     }
+    else if (name == "email"){
+      setCheckoutForm({...checkoutForm, email: value})
+    }
+    else if (name == "shoppingCart"){
+      setCheckoutForm({...checkoutForm, shoppingCart: value})
+    }
+
+    console.log(checkoutForm)
   }
 
   function handleOnCheckoutFormSubmit(){
-    axios.post("http://localhost:3001/purchase", checkoutForm)
-      .then(response => {
-        console.log(response)
-      })
-      .catch(err => {
-        console.log(err)
-      })
-    setCheckoutForm({})
+    if(checkoutForm.name != "" && checkoutForm.email != "" && checkoutForm.shoppingCart != []){ 
+      axios.post("http://localhost:3001/purchase", checkoutForm)
+        .then(response => {
+          console.log(response)
+        })
+      console.log(checkoutForm)
+      setShoppingCart([])
+      setCheckoutForm({})
+    }
+    else{
+      return(<alert>Please Make Sure Name/Email/Shopping Cart are not Empty</alert>)
+    }
   }
 
 
@@ -114,7 +131,7 @@ export default function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home products={products} isOpen={isOpen} handleOnToggle={handleOnToggle} arrow={arrow} remove={removeFromCart} add={addToCart} cart={shoppingCart}/>}/>
+          <Route path="/" element={<Home products={products} isOpen={isOpen} handleOnToggle={handleOnToggle} arrow={arrow} remove={removeFromCart} add={addToCart} cart={shoppingCart} change={handleOnCheckoutFormChange} submit={handleOnCheckoutFormSubmit} checkout={checkoutForm}/>}/>
           <Route path="/products/:productId" element={<ProductDetail products={products} cart={shoppingCart} remove={removeFromCart} add={addToCart}/>} />
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" />} />
