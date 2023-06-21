@@ -3,16 +3,20 @@ import { useState, useEffect } from 'react'
 import Navbar from "../Navbar/Navbar"
 import ProductView from "../ProductView/ProductView"
 import "./ProductDetail.css"
+import axios from "axios"
 import { useParams } from 'react-router-dom'
 
 
 export default function ProductDetail({products, cart, remove, add}){
+    const [filteredList, setFilteredList] = useState([products])
     const {productId} = useParams()
-    const [filteredList, setFilteredList] = useState([])
-    
+    const [product, setProduct] = useState([])
     useEffect(() => {
-        setFilteredList(products.filter(product => product.id == productId))
-    }, [filteredList])
+        axios.get(`http://localhost:3001/store/${productId}`)
+          .then(response => {
+            setProduct(response.data);
+          })
+      }, []);
     
     
     
@@ -20,11 +24,9 @@ export default function ProductDetail({products, cart, remove, add}){
         <>
             <Navbar/>
             <div className="product-detail">
-            {filteredList?.map(element => 
                 <ProductView 
-                product={filteredList[0]} cart={cart} remove={remove} add={add}
-                />)
-            }
+                product={product} cart={cart} remove={remove} add={add}
+                />
             </div>
         </>
         )
