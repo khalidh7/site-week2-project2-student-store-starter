@@ -87,17 +87,6 @@ export default function App() {
   }
   
   function handleOnCheckoutFormChange(name, value){
-    // switch(name){
-    //   case "name":
-    //     console.log("name")
-    //     setCheckoutForm({...checkoutForm, name: value});
-    //   case "email":
-    //     console.log('email')
-    //     setCheckoutForm({...checkoutForm, email: value});
-    //   case "shoppingCart":
-    //     console.log("form")
-    //     setCheckoutForm({...checkoutForm, shoppingCart: value});
-    // }
     if (name == "name"){
       setCheckoutForm({...checkoutForm, name: value})
     }
@@ -112,7 +101,7 @@ export default function App() {
   }
 
   function handleOnCheckoutFormSubmit(){
-    if(checkoutForm.name != "" && checkoutForm.email != "" && checkoutForm.shoppingCart != []){ 
+    if(checkoutForm.name != "" && checkoutForm.email != "" && shoppingCart.length != 0){ 
       axios.post("http://localhost:3001/purchase", checkoutForm)
         .then(response => {
           console.log(response)
@@ -122,7 +111,7 @@ export default function App() {
       setCheckoutForm({})
     }
     else{
-      return(<alert>Please Make Sure Name/Email/Shopping Cart are not Empty</alert>)
+      alert("Please fill out all field and make sure you have items in your cart")
     }
   }
 
