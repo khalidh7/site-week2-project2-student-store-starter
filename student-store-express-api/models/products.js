@@ -2,6 +2,7 @@ const fs = require("fs");
 let myObject = fs.readFileSync("./data/db.json", "utf8");
 let data = JSON.parse(myObject);
 let products = data.products;
+let purchases = data.purchases;
 
 const productSchema = {
   id: Number,
@@ -18,11 +19,17 @@ const purchaseSchema = {
 };
 
 const dataModel = {
-  getAll: () => {
+  getAllP: () => {
     return products;
   },
-  getById: (id) => {
+  getByIdP: (id) => {
     return products.find((user) => user.id === id);
+  },
+  getAllO: () => {
+    return purchases;
+  },
+  getByIdO: (email) => {
+    return purchases.find((order) => order.email.includes(email));
   },
   create: (order) => {
     const orderId = data.purchases.length + 1;
