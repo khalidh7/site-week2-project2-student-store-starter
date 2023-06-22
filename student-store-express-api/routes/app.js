@@ -27,17 +27,17 @@ app.get("/store/:id", (req, res) => {
 });
 
 app.get("/orders", (req, res) => {
-  const orders = dataModel.getAllP();
+  const orders = dataModel.getAllO();
   res.json(orders);
 });
 
-app.get("/orders/:email", (req, res) => {
-  const email = req.params.email;
-  const order = dataModel.getByIdP(email);
+app.get("/orders/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  const order = dataModel.getByIdO(id);
   if (order) {
     res.json(order);
   } else {
-    res.status(404).json({ error: `Order with ${email} not found` });
+    res.json({ error: `Order with ${id} not found` });
   }
 });
 

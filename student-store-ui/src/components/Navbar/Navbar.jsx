@@ -15,6 +15,8 @@ export default function Navbar() {
           <a href="/#products" className="i-link"><li>Products</li></a>
           <a href="/#about" className="i-link"><li>About Us</li></a>
           <a href="/#contact" className="i-link"><li>Contact Us</li></a>
+          <a href="/orders" className="i-link"><li>Past Orders</li></a>
+
         </ul>
       </div>
     </nav>

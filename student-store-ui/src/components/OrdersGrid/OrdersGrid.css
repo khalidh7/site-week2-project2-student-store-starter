@@ -1,0 +1,43 @@
+
+.orders{
+    margin-left: 75px;
+}
+
+
+.orders .content .table {
+    width: 75%;
+    margin-left: 140px;
+}
+
+.orders .content .table .cart-header {
+    color: black;
+    background: var(--pure-white);
+    border: solid 1px var(--border-color);
+    border-radius: 4px;
+}
+
+
+
+
+.orders .content .table .cart-body {
+    margin-left: 100px;
+    color: white;
+    background: #009EDB;
+    border: solid 1px var(--border-color);
+    border-radius: 4px;
+
+    
+} 
+
+.orders .content .table .cart-body td{
+    text-align: center;
+}
+
+.orders .content .product-row span {
+    flex: 1
+}
+
+.orders .content .product-row span.center {
+    display: flex;
+    justify-content: center
+}

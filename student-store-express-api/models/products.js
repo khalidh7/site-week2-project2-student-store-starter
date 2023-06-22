@@ -28,8 +28,8 @@ const dataModel = {
   getAllO: () => {
     return purchases;
   },
-  getByIdO: (email) => {
-    return purchases.find((order) => order.email.includes(email));
+  getByIdO: (id) => {
+    return purchases.find((order) => order.id === id);
   },
   create: (order) => {
     const orderId = data.purchases.length + 1;
@@ -44,7 +44,13 @@ const dataModel = {
       taxes += subtotal * 0.09;
     });
     total = subtotal + taxes;
-    const newOrder = { id: orderId, date: date, total: total, ...order };
+
+    const newOrder = {
+      id: orderId,
+      date: date,
+      total: total.toFixed(2),
+      ...order,
+    };
     data.purchases.push(newOrder);
     const updatedData = JSON.stringify(data);
 
