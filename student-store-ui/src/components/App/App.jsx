@@ -15,6 +15,8 @@ export default function App() {
   const [isOpen, setIsOpen] = useState("closed")
   const [arrow, setArrow] = useState("arrow_forward")
   const [shoppingCart, setShoppingCart] = useState([])
+  const [purchaseText, setPurchaseText] = useState("")
+  const [total, setTotal] = useState(0)
   const [checkoutForm, setCheckoutForm] = useState({
     name: "",
     email: "",
@@ -109,6 +111,10 @@ export default function App() {
       console.log(checkoutForm)
       setShoppingCart([])
       setCheckoutForm({})
+      setPurchaseText(`Receipt
+      Showing receipt for ${checkoutForm.name} available at ${checkoutForm.email}:\n     
+              The total comes out to $4.90`)
+      setTimeout(() => {setPurchaseText("")}, 10000)
     }
     else{
       alert("Please fill out all field and make sure you have items in your cart")
@@ -120,7 +126,7 @@ export default function App() {
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Home products={products} isOpen={isOpen} handleOnToggle={handleOnToggle} arrow={arrow} remove={removeFromCart} add={addToCart} cart={shoppingCart} change={handleOnCheckoutFormChange} submit={handleOnCheckoutFormSubmit} checkout={checkoutForm}/>}/>
+          <Route path="/" element={<Home products={products} isOpen={isOpen} handleOnToggle={handleOnToggle} arrow={arrow} remove={removeFromCart} add={addToCart} cart={shoppingCart} change={handleOnCheckoutFormChange} submit={handleOnCheckoutFormSubmit} checkout={checkoutForm} text={purchaseText} total={total} setTotal={setTotal}/>}/>
           <Route path="/products/:productId" element={<ProductDetail products={products} cart={shoppingCart} remove={removeFromCart} add={addToCart}/>} />
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" />} />

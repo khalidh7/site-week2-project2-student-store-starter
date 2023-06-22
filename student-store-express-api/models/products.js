@@ -26,7 +26,19 @@ const dataModel = {
   },
   create: (order) => {
     const orderId = data.purchases.length + 1;
-    const newOrder = { id: orderId, ...order };
+    const shoppingCart = order.shoppingCart;
+    let total = 0;
+    const date = new Date().toUTCString().slice(5, 16);
+    for (item in shoppingCart) {
+      console.log(item);
+      const product = products.find((product) => product.id === item.id);
+      console.log(product);
+      // const quantity = item.quantity;
+      // const price = product.price;
+      // let producttotal = quantity * price;
+      // total += producttotal;
+    }
+    const newOrder = { id: orderId, date: date, ...order };
     data.purchases.push(newOrder);
     const updatedData = JSON.stringify(data);
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CheckoutForm({change, submit, checkout}){
+export default function CheckoutForm({change, submit, checkout, products}){
 
     return(
         <div className="checkout-form">
@@ -22,15 +22,6 @@ export default function CheckoutForm({change, submit, checkout}){
                             <input name="email" className="checkout-form-input" type="email" placeholder="student@codepath.org" onChange={(event) => {change("email", event.target.value)}}/>
                         </div>
                     </div>
-                    <div className="field">
-                        <div className="control">
-                            <label className="checkbox">
-                                <input className="termsAndConditions" type="checkbox"/>
-                                <span className="label">I agree to the <a href="#terms-and-conditions">terms and conditions</a></span>
-                            </label>
-                        </div>
-                    </div>
-                    <p className="is-danger"></p>
                     <div className="field">
                         <div className="control">
                             <button className="button checkout-button" onClick={submit}>Checkout</button>
