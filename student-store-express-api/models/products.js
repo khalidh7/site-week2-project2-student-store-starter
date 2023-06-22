@@ -27,18 +27,17 @@ const dataModel = {
   create: (order) => {
     const orderId = data.purchases.length + 1;
     const shoppingCart = order.shoppingCart;
+    let subtotal = 0;
+    let taxes = 0;
     let total = 0;
     const date = new Date().toUTCString().slice(5, 16);
-    for (item in shoppingCart) {
-      console.log(item);
+    shoppingCart.map((item) => {
       const product = products.find((product) => product.id === item.id);
-      console.log(product);
-      // const quantity = item.quantity;
-      // const price = product.price;
-      // let producttotal = quantity * price;
-      // total += producttotal;
-    }
-    const newOrder = { id: orderId, date: date, ...order };
+      subtotal += product.price * item.quantity;
+      taxes += subtotal * 0.09;
+    });
+    total = subtotal + taxes;
+    const newOrder = { id: orderId, date: date, total: total, ...order };
     data.purchases.push(newOrder);
     const updatedData = JSON.stringify(data);
 

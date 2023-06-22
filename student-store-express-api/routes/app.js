@@ -12,17 +12,32 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/store", (req, res) => {
-  const products = dataModel.getAll();
+  const products = dataModel.getAllP();
   res.json(products);
 });
 
 app.get("/store/:id", (req, res) => {
   const id = parseInt(req.params.id);
-  const product = dataModel.getById(id);
+  const product = dataModel.getByIdP(id);
   if (product) {
     res.json(product);
   } else {
     res.status(404).json({ error: `Product with ${id} not found` });
+  }
+});
+
+app.get("/orders", (req, res) => {
+  const orders = dataModel.getAllP();
+  res.json(orders);
+});
+
+app.get("/orders/:email", (req, res) => {
+  const email = req.params.email;
+  const order = dataModel.getByIdP(email);
+  if (order) {
+    res.json(order);
+  } else {
+    res.status(404).json({ error: `Order with ${email} not found` });
   }
 });
 
