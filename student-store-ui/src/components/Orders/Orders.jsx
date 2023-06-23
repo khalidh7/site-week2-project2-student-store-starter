@@ -8,6 +8,13 @@ import Sidebar from "../Sidebar/Sidebar"
 import OrdersGrid from "../OrdersGrid/OrdersGrid";
 
 export default function Orders({products, orders, isOpen, handleOnToggle, arrow, remove, add, cart, change, submit, checkout, text, total, setTotal}) {
+    const [filteredO, setFilteredO] = useState();
+
+    useEffect(() => {setFilteredO(orders)}, [orders])
+
+    function searchresults(input){
+      setFilteredO(orders.filter(order => order.email.toLowerCase().includes(input)))
+    }
     return(
         <>
       <Sidebar isOpen={isOpen} handleOnToggle={handleOnToggle} arrow={arrow} cart={cart} products={products} change={change} submit={submit} checkout={checkout} text={text} total={total} setTotal={setTotal}/>    
@@ -22,7 +29,7 @@ export default function Orders({products, orders, isOpen, handleOnToggle, arrow,
             </div>
           </div>
         </div>
-        <OrdersGrid orders={orders} products={products} remove={remove} add={add} cart={cart}/>
+        <OrdersGrid orders={filteredO} products={products} remove={remove} add={add} cart={cart}/>
         <About/>
         <Contact/>
         <Footer/>
