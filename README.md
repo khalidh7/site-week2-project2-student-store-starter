@@ -14,6 +14,7 @@ Check out our [deployed Student Store](https://codepath-student-store-demo.surge
 
 My Video :
 <a href="https://www.loom.com/share/2692c7d79346476e9db4e43d23c0971b">
+
 <p>Student Store Part 2 - Watch Video</p>
 <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/2692c7d79346476e9db4e43d23c0971b-with-play.gif">
 </a>
@@ -50,3 +51,5 @@ My Video :
 - [x] Build a page in the UI that displays the list of all past orders. The user should be able to click on any individual order to take them to a more detailed page of the transaction.
 - [x] Allow users to use an input to filter orders by the email of the person who placed the order.
 - [x] User cannot checkout if all fields (name, email, and shopping cart) are not present
+
+<Screenshot 2023-06-23 at 2.24.51 PM.png>
