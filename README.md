@@ -52,4 +52,4 @@ My Video :
 - [x] Allow users to use an input to filter orders by the email of the person who placed the order.
 - [x] User cannot checkout if all fields (name, email, and shopping cart) are not present
 
-<Screenshot 2023-06-23 at 2.24.51 PM.png>
+![Alt text](./ss.png?raw=true "Screenshot")
