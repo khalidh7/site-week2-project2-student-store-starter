@@ -13,12 +13,10 @@ Check out our [deployed Student Store](https://codepath-student-store-demo.surge
 ## _Week 2_ Application Features
 
 My Video :
-<a href="https://www.loom.com/share/e0be61d46bd849b68c4d9637706a6ad0">
-<p>Library | Loom - 20 June 2023 - Watch Video</p>
-<img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/e0be61d46bd849b68c4d9637706a6ad0-with-play.gif">
+<a href="https://www.loom.com/share/2692c7d79346476e9db4e43d23c0971b">
+<p>Student Store Part 2 - Watch Video</p>
+<img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/2692c7d79346476e9db4e43d23c0971b-with-play.gif">
 </a>
-
-https://www.loom.com/share/e0be61d46bd849b68c4d9637706a6ad0?sid=828ec035-b56a-43ea-8483-a088a1940544
 
 ### Core Features
 
@@ -40,15 +38,15 @@ https://www.loom.com/share/e0be61d46bd849b68c4d9637706a6ad0?sid=828ec035-b56a-43
 
 ### Core Features
 
-- [ ] User can click to expand the shopping cart in the left navigation.
-- [ ] Users can click the '+' button on a product cart to increment that product in the shopping cart.
-- [ ] Users can click the '-' button on a product cart to decrement that product in the shopping cart. If the count is zero, the product should be removed from the cart.
-- [ ] The shopping cart displays a table of products, quantities, subtotal, tax, and total.
-- [ ] Users can checkout, and receive a receipt confirming their purchase.
+- [x] User can click to expand the shopping cart in the left navigation.
+- [x] Users can click the '+' button on a product cart to increment that product in the shopping cart.
+- [x] Users can click the '-' button on a product cart to decrement that product in the shopping cart. If the count is zero, the product should be removed from the cart.
+- [x] The shopping cart displays a table of products, quantities, subtotal, tax, and total.
+- [x] Users can checkout, and receive a receipt confirming their purchase.
 
 ### Stretch Features
 
-- [ ] Create an endpoint for fetching all orders in the database and an endpoint for serving an individual order based on its ID.
-- [ ] Build a page in the UI that displays the list of all past orders. The user should be able to click on any individual order to take them to a more detailed page of the transaction.
-- [ ] Allow users to use an input to filter orders by the email of the person who placed the order.
-- [ ] Your choice! (Replace this bullet explaining what you implemented. Example: Users can create a wish list of products they are interested in but not yet ready to purchase.)
+- [x] Create an endpoint for fetching all orders in the database and an endpoint for serving an individual order based on its ID.
+- [x] Build a page in the UI that displays the list of all past orders. The user should be able to click on any individual order to take them to a more detailed page of the transaction.
+- [x] Allow users to use an input to filter orders by the email of the person who placed the order.
+- [x] User cannot checkout if all fields (name, email, and shopping cart) are not present
