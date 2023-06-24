@@ -134,9 +134,11 @@ export default function App() {
       setShoppingCart([])
       setCheckoutForm({})
       setPurchaseText(`Receipt
-      Showing receipt for ${checkoutForm.name} available at ${checkoutForm.email}:\n     
+      Showing receipt for ${checkoutForm.name} available at ${checkoutForm.email}:\n    
+      ${shoppingCart.map(item => {let temp = products.find(product => product.id == item.id); return `${temp.name} x ${item.quantity} = $${(temp.price * item.quantity).toFixed(2)}`}).join("\n")}
               The total comes out to $${total.toFixed(2)}`)
       setTimeout(() => {setPurchaseText("")}, 10000)
+      setShoppingCart([])
     }
     else{
       alert("Please fill out all field and make sure you have items in your cart")

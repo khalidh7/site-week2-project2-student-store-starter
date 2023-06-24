@@ -33,7 +33,7 @@ export default function OrdersView({products}){
                     order.shoppingCart?.map(item => {
                       let product = products.find(product => product.id === item.id)
                       return(
-                        <h3>{product.name} - {item.quantity}</h3>
+                        <h3>{product.name} - {item.quantity} : ${item.quantity * product.price}</h3>
                       )
                     })
                   } 
