@@ -47,9 +47,11 @@ My Video :
 
 ### Stretch Features
 
-- [x] Create an endpoint for fetching all orders in the database and an endpoint for serving an individual order based on its ID.
+- [x] Create an endpoint for fetching all orders in the database and an endpoint for serving an individual order based on its ID. (Screenshots of the api provided )
 - [x] Build a page in the UI that displays the list of all past orders. The user should be able to click on any individual order to take them to a more detailed page of the transaction.
 - [x] Allow users to use an input to filter orders by the email of the person who placed the order.
 - [x] User cannot checkout if all fields (name, email, and shopping cart) are not present. Logic is shown in picture below.
 
 ![Alt text](./ss.png?raw=true "Screenshot")
+![Alt text](./ordersapi.png?raw=true "Screenshot")
+![Alt text](./ordersidapi.png?raw=true "Screenshot")
